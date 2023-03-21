@@ -1,0 +1,34 @@
+---
+title: "EDA on SG HDB property transactions"
+author: "R package build"
+date: "2022-12-01"
+slug: indexEDA on SG HDB property transactions
+categories: R
+tags:
+- R Markdown
+- plot
+- regression
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+Attempt to load data in my own internal environment, data can be sourced here
+#provide data.gov link
+
+```{r}
+salesfile<-"resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv"
+hdbresale<-read.csv(file=salesfile,header=TRUE)
+summary(hdbresale)
+
+
+```
+
+Attempt to plot a resale price against a floor area per sqm
+
+```{r}
+library(ggplot2)
+plot(hdbresale$floor_area_sqm,hdbresale$resale_price)
+
+```
+
